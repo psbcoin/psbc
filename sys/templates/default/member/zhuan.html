@@ -1,0 +1,112 @@
+{template 'member', 'header'}
+
+  <script src="layer/layer.js"></script>
+
+<style>
+	.login .form-group:nth-child(1) .input{ width:55% !important;}
+	.login .form-group:nth-child(1) .input input{ border:none}
+	.login .form-group:nth-child(1) a{ width:20% !important; line-height:34px}
+</style>
+<div class="login">
+    <div class="form">
+            <form onSubmit="return false">
+                <div class="form-group ">
+                	<div class="fl">
+                        <span>当前可用</span>
+                    </div>
+                    <div class="fl input" style="text-align: left">
+                       {$memberinfo[point]}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="border"></div>
+                <div class="form-group ">
+                	<div class="fl">
+                        <span>接收UID</span>
+                    </div>
+                    <div class="fr">
+                        <input type="text" class="form-control" placeholder="请输入接收UID" id="uid">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="form-group ">
+                	<div class="fl">
+                        <span>转移数量</span>
+                    </div>
+                    <div class="fr">
+                        <input type="text" class="form-control" placeholder="请输入转移数量"  id="num">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="form-group ">
+                	<div class="fl">
+                        <span>交易密码</span>
+                    </div>
+                    <div class="fr">
+                        <input type="password" class="form-control" placeholder="请输入交易密码"  id="pwd">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="form-group submit " style="text-align: center; color: #FF0000">
+                   注：仅能从上往下转！
+                </div>
+                <div class="form-group submit ">
+                    <button class="btn btn-info" onClick="edpwd(1)">确定转移</button>
+                </div>
+        </form>
+    </div>
+</div>
+
+<div class="hei40"></div>
+<script>
+function edpwd(id){
+		var uid = $("#uid").val();
+		var num = $("#num").val();
+		var pwd = $("#pwd").val();
+		var nums = {$memberinfo[point]};
+	
+	if(!uid){
+		layer.msg("请输入接收UID", {icon: 2});
+		return false;
+	}
+	if(!num){
+		layer.msg("请输入转移数量", {icon: 2});
+		return false;
+	}
+	if(!pwd){
+		//layer.msg("请输入交易密码", {icon: 2});
+		//return false;
+	}
+	if(num > nums){
+		layer.msg("转移数量不能大于您的余额", {icon: 2});
+		return false;
+	}
+
+	$.post("index.php?m=member&a=zhuan", {
+		type : id,
+		uid : uid,
+		num : num,
+		pwd : pwd
+	}, function (data) {
+		if (data.stat == 1) {
+			layer.msg(data.msg, {icon: 1});
+			window.setTimeout("window.location='index.php?m=member&a=accounts'", 1000);
+		} else {
+			layer.msg(data.msg, {icon: 2});
+		}
+	}, "json");
+		
+	
+	
+	
+	
+	
+	
+	
+}
+	
+	
+	
+	
+</script>
+{template 'member', 'footer'}

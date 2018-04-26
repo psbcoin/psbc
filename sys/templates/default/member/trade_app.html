@@ -1,0 +1,232 @@
+{template 'member', 'header'}
+  <script src="layer/layer.js"></script>
+  <script src="layui/layui.js"></script>
+<style>
+.list .size12 {
+font-size: 15px !important; line-height: 170%
+}
+	.con .maincon1 ul li{ width: 49%}
+	.scpz input{ display: none}
+	.scpz img{ width: 100%; height: 130px;}
+</style>
+<div class="jytop1">
+    <div class="jytop">
+        <div class="img" style="width: 100%; float: left">
+            <img src="images/logo.png" width="60px" style="float: left">
+			<p class="p2" style="font-size: 28px; float: left; line-height: 77px; margin-left: 10px;">{$data[title]}（${$data[usd]}）</p>
+        </div>
+    </div>
+
+</div>
+
+<ul class="mmnav">
+	<li><a class="btn btn-info" href="index.php?m=member&a=trade_buy">买入PSBC</a></li>
+	<li><a class="btn btn-info" href="index.php?m=member&a=trade_my">我的交易</a></li>
+	<li><a class="btn btn-info" href="index.php?m=member&a=trade">卖出PSBC</a></li>
+    <div class="clear"></div>
+</ul>
+<ul class="mmnav sele">
+	<li{if $ac==1} class="active"{/if} id="t1"><a href="index.php?m=member&a=trade_my&ac=1">我的买入</a></li>
+	<li{if $ac==2} class="active"{/if} id="t2"><a href="index.php?m=member&a=trade_my&ac=2">我的卖出</a></li>
+	<li class="active" id="t3"><a href="index.php?m=member&a=trade_my&ac=3">交易中</a></li>
+	<li{if $ac==4} class="active"{/if} class="" id="t4"><a href="index.php?m=member&a=trade_my&ac=4">已完成</a></li>
+    <div class="clear"></div>
+</ul>
+<div class="con">
+	<div class="maincon maincon1" style="display:block">
+        <ul>
+        	<li class="fl size16 "><a href="index.php?m=member&a=trade_log&id={$data1[id]}">订单详情</a></li>
+        	<li class="fl size16 active">申诉</li>
+            <div class="clear"></div>
+        </ul>
+        <div class="list">
+            <p class="size14 " ><input type="text" id="title" placeholder="请输入申诉理由" style="width: 100%; height: 35px; line-height: 35px; border: #eee 1px solid" value="{$data2['title']}"></p>
+        </div>
+        <div class="list">
+			<div class="scpz">
+            	<div class="kuang1 fl" id="test1">
+               	{if $data2['img1']}
+               	<img src="/{$data2['img1']}">
+               	{else}
+                	<div class="kcon1">
+                    	<p class="text-center size12">+</p>
+                    	<p class="text-center size12" >上传证明截图</p>
+                    </div>
+                 {/if}
+                </div>
+            	<div class="kuang1 fl" id="test2">
+               	{if $data2['img2']}
+               	<img src="/{$data2['img2']}">
+               	{else}
+                	<div class="kcon1">
+                    	<p class="text-center size12">+</p>
+                    	<p class="text-center size12" >上传证明截图</p>
+                    </div>
+                 {/if}
+                </div>
+            	<div class="kuang1 fl" id="test3">
+               	{if $data2['img3']}
+               	<img src="/{$data2['img3']}">
+               	{else}
+                	<div class="kcon1">
+                    	<p class="text-center size12">+</p>
+                    	<p class="text-center size12" >上传证明截图</p>
+                    </div>
+                 {/if}
+                </div>
+				<div class="clear"></div>
+            </div>
+        </div>
+        <input type="hidden" id="img1">
+        <input type="hidden" id="img2">
+        <input type="hidden" id="img3">
+        <div class="button">
+        {if $data2}
+        {if $data2[show]}
+        {$data2[show]}
+        {else}
+        审核中...
+        {/if}
+        {else}
+        	<button class="btn btn-info" onClick="subs()">提交申诉</button>
+        {/if}
+        </div>
+    </div>
+</div>
+<div class="hei40"></div>
+<script>
+layui.use('upload', function(){
+  var $ = layui.jquery
+  ,upload = layui.upload;
+  
+  //普通图片上传
+  var uploadInst = upload.render({
+		elem: '#test1'
+	  ,data: {type:1} 
+		,acceptMime: 'image/*'
+		,ext: 'jpg|png|gif'
+		,size: 2048 //限制文件大小，单位 KB
+		,url: '/index.php?m=member&a=trade_app'
+		,before: function(obj){
+      //预读本地文件示例，不支持ie8
+      obj.preview(function(index, file, result){
+       // $('#demo1').attr('src', result); //图片链接（base64）
+		  $('#test1').html("<img src='"+result+"'>");
+      });
+    }
+    ,done: function(res){
+      //如果上传失败
+      if(res.code > 0){
+        return layer.msg('上传失败，请重试！'+res.msg);
+      }
+	  $("#img1").val(res.url);
+      //上传成功
+    }
+    ,error: function(){
+        return layer.msg('上传失败，请重试1！');
+    }
+  });
+  //普通图片上传
+  var uploadInst = upload.render({
+		elem: '#test2'
+	  ,data: {type:1} 
+		,acceptMime: 'image/*'
+		,ext: 'jpg|png|gif'
+		,size: 2048 //限制文件大小，单位 KB
+		,url: '/index.php?m=member&a=trade_app'
+		,before: function(obj){
+      //预读本地文件示例，不支持ie8
+      obj.preview(function(index, file, result){
+       // $('#demo1').attr('src', result); //图片链接（base64）
+		  $('#test2').html("<img src='"+result+"'>");
+      });
+    }
+    ,done: function(res){
+      //如果上传失败
+      if(res.code > 0){
+        return layer.msg('上传失败，请重试！'+res.msg);
+      }
+	  $("#img2").val(res.url);
+      //上传成功
+    }
+    ,error: function(){
+        return layer.msg('上传失败，请重试1！');
+    }
+  });
+  //普通图片上传
+  var uploadInst = upload.render({
+		elem: '#test3'
+	  ,data: {type:1} 
+		,acceptMime: 'image/*'
+		,ext: 'jpg|png|gif'
+		,size: 2048 //限制文件大小，单位 KB
+		,url: '/index.php?m=member&a=trade_app'
+		,before: function(obj){
+      //预读本地文件示例，不支持ie8
+      obj.preview(function(index, file, result){
+       // $('#demo1').attr('src', result); //图片链接（base64）
+		  $('#test3').html("<img src='"+result+"'>");
+      });
+    }
+    ,done: function(res){
+      //如果上传失败
+      if(res.code > 0){
+        return layer.msg('上传失败，请重试！'+res.msg);
+      }
+	  $("#img3").val(res.url);
+      //上传成功
+    }
+    ,error: function(){
+        return layer.msg('上传失败，请重试1！');
+    }
+  });
+  
+
+  
+});
+	
+function subs(){
+	var title = $("#title").val();
+	var img1 = $("#img1").val();
+	var img2 = $("#img2").val();
+	var img3 = $("#img3").val();
+	if(!title){
+		layer.msg("请输入申诉理由", {icon: 2});
+		return false;
+	}
+	if(!img1 && !img2 && !img3){
+		layer.msg("至少需要传一张证明截图", {icon: 2});
+		return false;
+	}
+
+	$.post("index.php?m=member&a=trade_app", {
+		type : 2,
+		id : {$data1[id]},
+		title : title,
+		img1 : img1,
+		img2 : img2,
+		img3 : img3
+	}, function (data) {
+		if (data.stat == 1) {
+			layer.msg(data.msg, {icon: 1});
+			window.setTimeout("window.location=window.location.href", 1000);
+		} else {
+			layer.msg(data.msg, {icon: 2});
+		}
+	}, "json");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+	
+</script>
+		
+		
+{template 'member', 'footer'}

@@ -1,0 +1,35 @@
+{template 'member', 'header'}
+
+
+<style>
+	.list .n1{ padding:8px 15px;}
+	.list .n2{ padding:8px 15px; background:#f2f4f6}
+	.container-fluid .fl a{ padding:0 0 2px !important}
+	.container-fluid .fr b{ width:10px; height:20px; display:block; font-size:30px}
+	.ty li{ padding:5px 0}
+</style>
+<div class="border"></div><div class="border"></div><div class="border"></div>
+    <div class="ty">
+        <ul class="list-unstyled">
+    	{pc:content action="lists" catid="$catid" num="20" order="listorder desc,id DESC" page="$page"}
+{loop $data $r}
+            <li>
+                <div class="container-fluid">
+                	<div class="fl">
+                    	<a class="size16" href="{$r[url]}">{$r[title]}</a>
+                        <a class="size10" href="{$r[url]}">{date("Y-m-d",$r[inputtime])}</a>
+                    </div>
+                    <div class="fr">
+                    	<b class="fa fa-angle-right"></b>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="border"></div>
+            </li>
+{/loop}
+{/pc}
+        </ul>
+        <div id="pages" class="text-c">{$pages}</div>
+    </div>
+
+{template 'member', 'footer'}

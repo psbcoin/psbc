@@ -1,0 +1,142 @@
+{template 'member', 'header'}
+
+  <script src="layer/layer.js"></script>
+
+<style>
+	.login .form-group:nth-child(1) .input{ width:55% !important;}
+	.login .form-group:nth-child(1) .input input{ border:none}
+	.login .form-group:nth-child(1) a{ width:20% !important; line-height:34px}
+</style>
+<div class="login">
+    <div class="form">
+            <form onSubmit="return false">
+                <div class="form-group ">
+                	<div class="fl">
+                        <span>原登录密码</span>
+                    </div>
+                    <div class="fl input">
+                        <input type="password" class="form-control" placeholder="请输入原登录密码" name="oldpwd" id="oldpwd2">
+                    </div>
+                    <a class="fr" href="index.php?m=member&c=index&a=public_forget_password_mobile">忘记密码</a>
+                    <div class="clear"></div>
+                </div>
+                <div class="border"></div>
+                <div class="form-group ">
+                	<div class="fl">
+                        <span>新登录密码</span>
+                    </div>
+                    <div class="fr">
+                        <input type="password" class="form-control" placeholder="请输入新登录密码" name="newpwd" id="newpwd2">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="form-group ">
+                	<div class="fl">
+                        <span>重复新密码</span>
+                    </div>
+                    <div class="fr">
+                        <input type="password" class="form-control" placeholder="请重复输入新登录密码" name="newpwd3" id="newpwd3">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="form-group submit ">
+                    <button class="btn btn-info" onClick="edpwd(1)">提交</button>
+                </div>
+        </form>
+    </div>
+    <div class="form" style="margin-top: 40px;">
+            <form onSubmit="return false">
+                <div class="form-group ">
+                	<div class="fl">
+                        <span>原交易密码</span>
+                    </div>
+                    <div class="fl input">
+                        <input type="password" class="form-control" name="oldpwd" id="oldpwd" placeholder="请输入原交易密码">
+                    </div>
+                    <a class="fr" href="index.php?m=member&c=index&a=public_forget_password_mobile">忘记密码</a>
+                    <div class="clear"></div>
+                </div>
+                <div class="border"></div>
+                <div class="form-group ">
+                	<div class="fl">
+                        <span>新交易密码</span>
+                    </div>
+                    <div class="fr">
+                        <input type="password" class="form-control" name="newpwd" id="newpwd" placeholder="请输入新交易密码">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="form-group ">
+                	<div class="fl">
+                        <span>重复新密码</span>
+                    </div>
+                    <div class="fr">
+                        <input type="password" class="form-control"  name="newpwd1" id="newpwd1" placeholder="请重复输入新交易密码">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="form-group submit ">
+                    <button class="btn btn-info" onClick="edpwd(2)">提交</button>
+                </div>
+        </form>
+    </div>
+</div>
+
+<div class="hei40"></div>
+<script>
+function edpwd(id){
+	if(id==1){
+		var oldpwd = $("#oldpwd2").val();
+		var newpwd = $("#newpwd2").val();
+		var newpwd2 = $("#newpwd3").val();
+	}
+	if(id==2){
+		var oldpwd = $("#oldpwd").val();
+		var newpwd = $("#newpwd").val();
+		var newpwd2 = $("#newpwd1").val();
+	}
+	if(!oldpwd){
+		layer.msg("请输入原密码", {icon: 2});
+		return false;
+	}
+	if(!newpwd){
+		layer.msg("请输入新密码", {icon: 2});
+		return false;
+	}
+	if(!newpwd2){
+		layer.msg("请重复输入新密码", {icon: 2});
+		return false;
+	}
+	if(newpwd != newpwd2){
+		layer.msg("两次密码输入不一致", {icon: 2});
+		return false;
+	}
+
+	$.post("index.php?m=member&a=sec", {
+		type : id,
+		oldpwd : oldpwd,
+		newpwd : newpwd,
+		newpwd2 : newpwd2
+	}, function (data) {
+		if (data.stat == 1) {
+			layer.msg(data.msg, {icon: 1});
+			window.setTimeout("window.location='index.php?m=member&a=sec'", 1000);
+		} else {
+			layer.msg(data.msg, {icon: 2});
+		}
+	}, "json");
+		
+	
+	
+	
+	
+	
+	
+	
+}
+	
+	
+	
+	
+</script>
+{template 'member', 'footer'}

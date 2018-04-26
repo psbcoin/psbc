@@ -1,0 +1,42 @@
+{template 'member', 'header'}
+<style>
+	.jytop2 a{ color: #fff}
+</style>
+
+<div class="jytop1">
+    <div class="jytop2">
+        <div class="img">
+            <img class="fl" src="images/logo1.png" width="50px">
+            <div class="fl" style="margin-left:15px">
+            	<p class="size12">手机：{$memberinfo['mobile']}</p>
+            	<p class="size12">UID：{$memberinfo['userid']}</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <p class="p1 size16">可用币量： {$memberinfo['amount']}</p>
+    </div>
+</div>
+<div class="wdmr-table">
+	<table class="table">
+    	<tr>
+            <th class="active text-center">金额</th>
+            <th class="active text-center">时间</th>
+            <th class="active text-center">备注</th>
+        </tr>
+{pc:get sql="SELECT * FROM v9_pay_spend WHERE  userid ='$userid' order by id desc " num="20" return="info" page="$page"} 
+{loop $info $r}
+    	<tr>
+            <td class="active{if $r[value] <0} red{/if}">{$r[value]}</td>
+            <td class="active">{date("Y-m-d H:i",$r[creat_at])}</td>
+            <td class="active">{$r[msg]}</td>
+        </tr>
+{/loop}  
+{/pc}
+    </table>
+</div>
+<div class="page">
+    {$pages}
+</div>
+<div class="hei40"></div>
+
+{template 'member', 'footer'}

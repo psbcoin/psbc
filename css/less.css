@@ -1,0 +1,525 @@
+/*-------------------general------------------------*/
+body {
+  background: #fff;
+  max-width:680px; margin:0 auto
+}
+.backgroundmain{ background:#5b8cf8}
+.colormain{ color:#5b8cf8}
+.footer{ max-width:680px}
+.padding_right {
+  padding-right: 0;
+}
+table.table td{ text-align:center }
+.color33{ color:#333}
+.hei40{ width:100%; height:40px}
+/*-------------------hedaer------------------------*/
+header {
+  width: 100%;
+}
+header .header_top {
+  height: 56px;
+  width: 100%;
+  background: #fff;
+}
+header .header_top .return {
+  width: 100%;
+  text-align: left;
+}
+header .header_top .return span {
+  line-height: 56px;
+  color: #5d5757;
+  font-size: 38px;
+}
+header .header_top .header_bt {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+header .header_top .header_bt h3 {
+  line-height: 64px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #332c2b;
+  margin: 0;
+  white-space: normal;
+  height: 56px;
+  overflow: hidden;
+}
+header .header_top .nav {
+  widht: 100%;
+  color: #332c2b;
+  text-align: right;
+}
+header .header_top .nav span {
+  font-size: 32px;
+  line-height: 56px;
+  cursor: pointer;
+}
+.clear{ clear:both}
+.fl{ float:left}
+.fr{ float:right}
+.red{ color:red}
+.size10{ font-size:12px !important}
+.size12{ font-size:14px !important}
+.size14{ font-size:15px !important}
+.size16{ font-size:16px !important}
+.size18{ font-size:18px !important}
+.size30{ font-size:30px !important}
+.white{ color:#fff}
+li{ list-style:none}
+.jytop1{ border-bottom:3px solid #f2f4f6}
+.jytop{ margin-left:15px;}
+.jytop .p1{ color:#8b8b8c; font-size:12px; margin-top:5px; margin-bottom:5px}
+.jytop .p2{ color:#333; font-size:16px; font-weight:bolder;}
+.mmnav{ width:100%; padding-left:0; text-align:center; border-bottom:3px solid #f2f4f6; padding:10px ; margin-bottom:0}
+.mmnav li{ width:33%; float:left; list-style:none}
+.mmnav li a{ width:90%; line-height:30px; display:block; float:left; border-radius:0; margin:0 5%;}
+.sele{ width:100%; padding:10px; border-bottom:3px solid #f2f4f6;}
+.sele li{ width:25%}
+.sele li a{ color:#333; width:100%; margin:0; border:1px solid #5b8cf8; border-left:none}
+.sele li a:nth-child(1){ border-left:1px solid #5b8cf8;}
+.sele li.active a{ background:#5b8cf8}
+.con .maincon{ display:none; width:100%; padding:10px}
+.con .maincon1 .top{ color:#8b8b8c; padding-left:10px }
+.con .maincon1 ul { width:100%; padding-left:0; margin-top:10px}
+.con .maincon1 ul li{ width:33%; text-align:center; color:#8b8b8c}
+.con .maincon1 ul li.active{color:#5b8cf8}
+.con .maincon1 .list{color:#8b8b8c; width:100%; padding:10px;}
+.con .maincon1 .list p{ margin:10px 0 0 0}
+.border{ width:100%; height:1px; background:#f2f4f6}
+.button{ width:100%; margin:30px 0 20px}
+.button button{ width:80%; height:34px; border-radius:17px; margin:0 10%}
+.footer{}
+.form form .form-group { margin:10px 0}
+.form form .form-group .border{ color:#f2f4f6}
+.form form .form-group .fl{ width:25%; text-align:right; padding-right:10px; height:34px; line-height:34px}
+.form form .form-group .fr{ width:75%}
+.form form .form-group .fr input{ border:none}
+.form .submit{ width:100%; padding-top:20px}
+.form .submit button{ width:90%; margin:0 5%;border-radius:17px }
+.form  .link{ width:90%; margin:0 5%}
+.form  .link a{ color:#333333; margin:4px 10px}
+.rule1{ width:100%; padding:10px}
+.rule{ width:100%; background:#5b8cf8; padding:8px 10px}
+.sell_submit{ width:100%; padding:10px;}
+.sell_submit .sellinput{ border-color:#5b8cf8; border-radius:0}
+.sell_submit .form-group{ margin:0}
+.sell_submit .submit{ background:#5b8cf8; border-radius:0}
+.sell-table{ width:100%}
+.sell-table ul{ width:100%; padding:5px 10px; margin:0}
+.sell-table ul:nth-child(1) li{ width:33%; text-align:center; color:#8b8b8c; padding:4px 0}
+.sell-table ul li{ width:33%; text-align:center; color:#333; padding:4px 0}
+.wdmr-table{ width:100%}
+.wdmr-table ul{ width:100%; padding:5px 10px; margin:0}
+.wdmr-table ul:nth-child(1) li{color:#8b8b8c;}
+.wdmr-table ul li{ width:25%; text-align:center; color:#333; padding:4px 0}
+.wdmr-table ul li span{ color:#fff; padding:3px; border-radius:2px}
+.wdmc-table{ width:100%}
+.wdmc-table ul{ width:100%; padding:5px 10px; margin:0}
+.wdmc-table ul:nth-child(1) li{color:#8b8b8c;}
+.wdmc-table ul li{ width:25%; text-align:center; color:#333; padding:4px 0}
+.wdmc-table ul li span{ color:#fff; padding:3px; border-radius:2px}
+.buy123{ background:#5b8cf8;}
+.sell123{ background:#ff8973;}
+.maincon .list .scpz .kuang{ width:32%; height:130px; border:1px solid #999; margin:0 auto}
+.maincon .list .scpz .kuang .kcon1{ height:30px; margin:50px 0}
+.maincon .list .scpz .kuang p{ margin:0; line-height:15px}
+.maincon .list .scpz .kuang1{ width:30%; height:130px; border:1px solid #999; margin-right:4.7%;}
+.maincon .list .scpz .kuang1:nth-child(3){ margin-right:0}
+.maincon .list .scpz .kuang1 .kcon1{ height:30px; margin:50px 0}
+.maincon .list .scpz .kuang1 p{ margin:0; line-height:15px}
+.padding15{ padding: 0 15px}
+.form-regist{ width:100%; padding:15px}
+.form-regist input{ border:none; font-size:14px}
+.form-regist .submit1{ width:30% !important; border:none; color:#6499fb}
+.form-regist .input-yzm{ width:70% !important; border:none; color:#6499fb; text-align:left !important}
+.jytop2{ width:90%; background:#5b8cf8; color:#fff; margin:5%; border-radius:8px; padding:10px 20px}
+.jytop2 .img{ margin-bottom:25px}
+.jytop2 .img p{ margin:0}
+.jytop2 .img p:nth-child(1){ margin-top:6px}
+.sele1 li{ width:50%; color:#333; border-bottom:1px solid #f2f4f6}
+.sele1 li.active { border-bottom:1px solid #5b8cf8;}
+.sele1 li.active a{ color:#5b8cf8;}
+.jytop2 .img1 .fl{ width:33%; text-align:center}
+.jytop2 .img1 .fl p{ margin-nottom:5px}
+.jytop2 .img1 .fl p:nth-child(1){ height:50px; line-height:50px}
+.jytop2 .p2{ text-align: center}
+.page{ width:100%; margin:0 auto;}
+.page ul{ padding:0; text-align:center; width:inherit}
+.page li{ float:left}
+.page li a{ display:block; font-size:14px; line-height:18px; padding:3px 8px; margin-left:2px; color:#333;}
+.page li.active a{ color:#fff; background:#5b8cf8}
+.wdzh .fl{ text-align: center; width:33%; padding:20px 0}
+.wdzh .fl img{ float:none; width:40px; height:40px}
+.wdzh .fl a{ float:none; color:#666}
+#dowebok {
+  background-color: #084887;
+}
+#dowebok .sidebar-wrapper .nav {
+  margin-top: 20px;
+  line-height: 40px;
+  list-style-type: none;
+}
+#dowebok .sidebar-wrapper .nav a {
+  display: block;
+  padding: 0 20px;
+  color: #fff;
+  text-decoration: none;
+}
+#dowebok .sidebar-wrapper .nav a:hover {
+  background-color: #0883fd;
+}
+/*-------------------banner------------------------*/
+.banner {
+  width: 100%;
+}
+.banner .item {
+  width: 100%;
+  text-align: center;
+}
+.banner .item img {
+  margin: 0 auto;
+}
+/*-------------------general------------------------*/
+.main {
+  width: 100%;
+}
+.main_one {
+  width: 100%;
+  background: #fff;
+  text-align: center;
+}
+.main_one .one_a {
+  padding: 10px 0;
+  display: block;
+}
+.main_one .one_a .a_one {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: #135fb7;
+  display: block;
+}
+.main_one .one_a .a_one:hover {
+  background: #3582db;
+}
+.main_one .one_a .a_one span {
+  line-height: 50px;
+  font-size: 28px;
+  color: #fff;
+}
+.main_one .one_a p {
+  margin-bottom: 0;
+  font-size: 0.85em;
+  margin-top: 3px;
+}
+.main_two {
+  width: 100%;
+  background: #135fb7;
+  padding-top: 15px;
+}
+.main_two input {
+  position: relative;
+}
+.main_two a {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  font-size: 24px;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+.main_two a:hover {
+  text-decoration: none;
+}
+.main_frim {
+  width: 100%;
+}
+.main_frim .frim_bt {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+.main_frim .frim_bt h3 {
+  display: inline-block;
+  float: left;
+  margin: 0;
+  font-size: 18px;
+  display: block;
+  border-left: 2px solid #135fb7;
+  padding: 5px 0 5px  5px;
+  font-weight: bold;
+}
+.main_frim .frim_bt a {
+  float: right;
+  font-size: 14px;
+  line-height: 29px;
+  color: #333;
+}
+.main_frim .frin_main {
+  width: 100%;
+  background: #fff;
+}
+.main_frim .frin_main ul {
+  margin-bottom: 0;
+}
+.main_frim .frin_main ul li {
+  width: 100%;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px 0;
+}
+.main_frim .frin_main ul li a {
+  display: block;
+  width: 100%;
+}
+.main_frim .frin_main ul li a p {
+  color: #666;
+}
+.main_frim .frin_main ul li a p:hover {
+  color: #135fb7;
+}
+.main_frim .frin_main ul li a blockquote {
+  margin-top: 0;
+  font-size: 14px;
+}
+.main_six {
+  width: 100%;
+  padding-bottom: 40px;
+}
+.main_six .six_bt {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+.main_six .six_bt h3 {
+  display: inline-block;
+  float: left;
+  margin: 0;
+  font-size: 18px;
+  display: block;
+  border-left: 2px solid #135fb7;
+  padding: 5px 0 5px  5px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.main_six .six_bt a {
+  float: right;
+  font-size: 14px;
+  line-height: 29px;
+  color: #333;
+}
+.main_six .six_main {
+  width: 100%;
+  padding: 15px 0;
+  background: #fff;
+  padding-right: 15px;
+}
+.main_six .six_main a {
+  margin-right: -15px;
+}
+.main_six .six_main a img {
+  margin-bottom: 15px;
+}
+/*-------------------footer------------------------*/
+.footer {
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+}
+.footer ul { padding-left:0}
+.footer ul li { width:16.6%; text-align:center}
+.footer ul li a{ width:100%; display:block; height:34px; line-height:34px; color:#333}
+.footer ul li.active a { color:#5b8cf8}
+/*-------------------news_list------------------------*/
+.news_padding {
+  padding-bottom: 70px;
+}
+.news_padding .tabBox .hd {
+  font-size: 15px;
+  background: #F3F3F3;
+  text-align: center;
+  background: #fff;
+  margin-bottom: 10px;
+}
+.news_padding .tabBox .hd ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.news_padding .tabBox .hd ul li {
+  float: left;
+  color: #515151;
+  list-style: none;
+  width: 25%;
+  padding: 10px 0;
+}
+.news_padding .tabBox .hd ul li a {
+  color: #000;
+  text-decoration: none;
+}
+.news_padding .tabBox .hd ul .on {
+  border-bottom: 2px solid #135fb7;
+  color: #BA2636;
+}
+.news_padding .tabBox .hd ul .on a {
+  display: block;
+  color: #135fb7;
+  text-decoration: none;
+  /* 修复Android 4.0.x 默认浏览器当前样色无效果bug */
+}
+.main_news .frin_main {
+  width: 100%;
+  background: #fff;
+}
+.main_news .frin_main ul.acd {
+  margin-bottom: 0;
+}
+.main_news .frin_main ul.acd li {
+  width: 100%;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px 0;
+}
+.main_news .frin_main ul.acd li a {
+  display: block;
+  width: 100%;
+}
+.main_news .frin_main ul.acd li a p {
+  color: #666;
+}
+.main_news .frin_main ul.acd li a p:hover {
+  color: #135fb7;
+}
+.main_news .frin_main ul.acd li a blockquote {
+  margin-top: 0;
+  font-size: 14px;
+}
+.fy {
+  width: 100%;
+  padding: 10px;
+}
+/*-------------------details------------------------*/
+.details {
+  width: 100%;
+  background: #fff;
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+.details_bt {
+  text-align: center;
+}
+.details_bt h3 {
+  font-size: 18px;
+}
+.details_bt time {
+  margin-bottom: 10px;
+}
+.details_nr {
+  margin-top: 20px;
+}
+.details_nr p {
+  color: #999;
+}
+/*-------------------login------------------------*/
+.login_e {
+  padding-bottom: 50px;
+}
+.login {
+  width: 100%;
+  background: #fff;
+  padding: 10px 0;
+}
+.logoin_nr {
+  width: 100%;
+  background: #fff;
+  margin-top: 50px;
+  padding: 20px 0;
+}
+.logoin_nr .form_a {
+  margin-top: 10px;
+}
+.logoin_nr .form-s {
+  padding: 3px 0;
+}
+.logoin_nr .wj {
+  float: right;
+}
+/*-------------------members------------------------*/
+.members_main {
+  width: 100%;
+  padding-bottom: 60px;
+}
+.members_main_n {
+  width: 100%;
+  padding: 1rem 0;
+  background: #fff;
+  margin-top: 1.5rem;
+}
+.members_main_n .neo_img {
+  display: inline-block;
+}
+.members_main_n .neo_mz {
+  float: left;
+  margin-top: 1.2rem;
+  margin-left: 0.5rem;
+}
+.members_main_n .neo_mz p {
+  font-size: 1.6rem;
+  margin-bottom: 0;
+  display: block;
+  max-width: 10rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.members_main_n .neo_mz i {
+  font-size: 1.4rem;
+  font-style: normal;
+  color: #666;
+}
+.members_main_n .neo_mz i span {
+  color: #ec501a;
+}
+.UEP {
+  width: 100%;
+}
+.UEP span {
+  font-size: 2.4rem;
+  line-height: 5.7rem;
+  color: #333;
+}
+.ty {
+  width: 100%;
+  margin: 1.5rem 0;
+}
+.ty ul {
+  margin: 0;
+}
+.ty ul li {
+  margin-top: 1px;
+  background: #fff;
+  width: 100%;
+}
+.ty ul li:hover {
+  background: #f4f5f6;
+}
+.ty ul li a {
+  display: block;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 14px;
+  color: #333;
+}
+.ty ul li a span {
+  float: right;
+  font-size: 12px;
+  line-height: 1.9rem;
+  color: #969696;
+  margin-right: 0.5rem;
+}
+.ty ul li a b {
+  float: right;
+  font-size: 24px;
+  line-height: 1.8rem;
+  color: #969696;
+}
+/*-------------------general------------------------*/

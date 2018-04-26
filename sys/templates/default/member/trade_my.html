@@ -1,0 +1,136 @@
+{template 'member', 'header'}
+  <script src="layer/layer.js"></script>
+
+<div class="jytop1">
+    <div class="jytop">
+        <div class="img" style="width: 100%; float: left">
+            <img src="images/logo.png" width="60px" style="float: left">
+			<p class="p2" style="font-size: 28px; float: left; line-height: 77px; margin-left: 10px;">{$data[title]}（${$data[usd]}）</p>
+        </div>
+    </div>
+</div>
+
+<ul class="mmnav">
+	<li><a class="btn btn-info" href="index.php?m=member&a=trade_buy">买入PSBC</a></li>
+	<li><a class="btn btn-info" href="index.php?m=member&a=trade_my">我的交易</a></li>
+	<li><a class="btn btn-info" href="index.php?m=member&a=trade">卖出PSBC</a></li>
+    <div class="clear"></div>
+</ul>
+<ul class="mmnav sele">
+	<li{if $ac==1} class="active"{/if} id="t1"><a href="index.php?m=member&a=trade_my&ac=1">我的买入</a></li>
+	<li{if $ac==2} class="active"{/if} id="t2"><a href="index.php?m=member&a=trade_my&ac=2">我的卖出</a></li>
+	<li{if $ac==3} class="active"{/if} id="t3"><a href="index.php?m=member&a=trade_my&ac=3">交易中</a></li>
+	<li{if $ac==4} class="active"{/if} class="" id="t4"><a href="index.php?m=member&a=trade_my&ac=4">已完成</a></li>
+    <div class="clear"></div>
+</ul>
+{if $ac==3 || $ac==4}
+<div class="wdmc-table" id="c1">
+	<ul>
+    	<li class="fl">类型</li>
+    	<li class="fl">数量</li>
+    	<li class="fl">单价</li>
+    	<li class="fl">状态</li>
+        <div class="clear"></div>
+    </ul>
+{pc:get sql="SELECT * FROM v9_trade_log WHERE  (uid1 = '$userid' or uid2 = '$userid') $where  order by id desc  " num="10" return="info"} 
+{loop $info $r}
+    <div class="border"></div>
+	<ul>
+    	<li class="fl">
+    	{if $r[uid1]==$userid}
+    	<span class="buy123">买</span>
+    	{else}
+    	<span class="sell123">卖</span>
+    	{/if}
+    	</li>
+    	<li class="fl">{$r[title]}</li>
+    	<li class="fl">{$r[pri]}</li>
+    	<li class="fl">
+      	{if $r[status]==1}
+     交易中
+      	{elseif $r[status]==2}
+      	已完成
+      	{else}
+      	已撤销
+      	{/if}
+       <a href="index.php?m=member&a=trade_log&id={$r[id]}">详情</a></li>
+        <div class="clear"></div>
+    </ul>
+{/loop}  
+{/pc}
+    <div class="border"></div>
+</div>
+{else}
+<div class="wdmc-table" id="c1">
+	<ul>
+    	<li class="fl">数量</li>
+    	<li class="fl">已成交</li>
+    	<li class="fl">单价</li>
+    	<li class="fl">操作</li>
+        <div class="clear"></div>
+    </ul>
+{pc:get sql="SELECT * FROM v9_trade WHERE  username = '$userid' and status !=0 $where  order by id desc  " num="10" return="info"} 
+{loop $info $r}
+    <div class="border"></div>
+	<ul>
+    	<li class="fl">
+    	{if $r[type]==1}
+    	<span class="buy123">买</span>
+    	{else}
+    	<span class="sell123">卖</span>
+    	{/if}{$r[title]}
+    	</li>
+    	<li class="fl">{$r[num]}</li>
+    	<li class="fl">{$r[price]}</li>
+    	<li class="fl"><a onClick="che('{$r[id]}')">撤销</a></li>
+        <div class="clear"></div>
+    </ul>
+{/loop}  
+{/pc}
+    <div class="border"></div>
+</div>
+{/if}
+<div class="hei40"></div>
+<script>
+function che(id){
+
+		layer.confirm("确定要撤销此订单吗？", 
+		{
+			btn: ['确认撤销','取消'], //按钮
+			shade: false, //不显示遮罩
+			title:'确认信息'
+		}, function(index){
+			$.post("index.php?m=member&a=trade_my", {
+				type : id,
+			}, function (data) {
+				if (data.stat == 1) {
+					layer.msg(data.msg, {icon: 1});
+					window.setTimeout("window.location=window.location.href", 1000);
+				} else {
+					layer.msg(data.msg, {icon: 2});
+				}
+			}, "json");
+		
+			layer.close(index);
+		},function(index){
+			layer.close(index);
+		}
+		
+		);	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+	
+	
+	
+	
+</script>
+
+{template 'member', 'footer'}
